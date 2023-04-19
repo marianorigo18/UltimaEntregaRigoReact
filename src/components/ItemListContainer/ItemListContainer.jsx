@@ -1,7 +1,7 @@
 import React from 'react'
 import {getCategories, getProductsByCategory} from "../../asynkMock"
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 export const ItemListContainer = () => {
     const [categories, setCategories] = useState([]) 
@@ -34,9 +34,11 @@ export const ItemListContainer = () => {
         {
             categories.map(cat => {
                 return(
-                    <div key={cat.id}>
+                    <div key={cat.id} style={{border:"1px solid #c3c3c3", display: "inline-flex", flexWrap: "wrap"}}>
                         <img src={cat.img} alt={cat.name} style={{width: "200px"}}/>
                         <p key={cat.id}>{cat.name}</p>
+                        {categoriaId ? <Link to={`/articulo/${cat.id}`}>ver detalle</Link> : <Link to={`/categoria/${cat.slug}`}>ver categorias</Link>}
+                        
                     </div>
                 )
             })
