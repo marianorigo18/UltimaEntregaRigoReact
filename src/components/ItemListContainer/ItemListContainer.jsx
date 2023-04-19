@@ -11,7 +11,8 @@ export const ItemListContainer = () => {
     
     useEffect(() => {
         const asyncFunc = categoriaId ? getProductsByCategory : getCategories
-
+        
+        setLoading(true)
         asyncFunc(categoriaId)
         .then(response => {
             setCategories(response)

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../../asynkMock'
+import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetailContainer = () => {
     const {productId} = useParams()
@@ -27,6 +28,7 @@ const ItemDetailContainer = () => {
     <div>
         <img src={product.img} alt={product.name}/>
         <h2>{product.name}</h2>
+        <ItemCount stock={product.stock} initialValue={1}/>
     </div>
   )
 }
