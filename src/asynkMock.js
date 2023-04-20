@@ -59,7 +59,7 @@ const products = [
         stock: "10",
         name: "cuadrado aplicar 6w",
         category: "cuadrado-aplicar",
-        img: "https://http2.mlstatic.com/D_NQ_NP_713373-MLA49076916173_022022-O.webp"
+        img: "../assets/categories/imgs/database.png"
     },
     {
         id: "006",
@@ -153,7 +153,7 @@ export const getProductsByCategory = (categoriaId) =>{
     return new Promise((resolve, reject)=>{
         setTimeout(()=>{
             resolve(products.filter(prod => prod.category === categoriaId))
-        })
+        },500)
     })
 }
 
