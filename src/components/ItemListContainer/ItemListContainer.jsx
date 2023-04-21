@@ -1,5 +1,5 @@
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import React from 'react'
-import {getCategories, getProductsByCategory} from "../../asynkMock"
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 
@@ -10,20 +10,24 @@ export const ItemListContainer = () => {
 
     
     useEffect(() => {
-        const asyncFunc = categoriaId ? getProductsByCategory : getCategories
-        
-        setLoading(true)
-        asyncFunc(categoriaId)
-        .then(response => {
-            setCategories(response)
+        setLoading(true)    
+        const db = getFirestore();
+        const collectionProducts = categoriaId ? query(collection(db, "products"), where("category", "==", categoriaId)) : collection(db, "categories")
+        getDocs(collectionProducts)
+        .then((result)=>{
+            const lista = result.docs.map((product)=>{
+                return {
+                    id: product.id,
+                    ...product.data()
+                }
+            })
+            setCategories(lista)
         })
-        .catch(error =>{
-            console.log(error)
-        })
-        .finally(()=>{
-            setLoading(false)
-        })
+        .catch((err)=> console.log(err))
+        .then(()=>{setLoading(false)})
     },[categoriaId])
+
+
     if(loading){
         return(<h1>cangando...</h1>)
     }
