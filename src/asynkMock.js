@@ -91,7 +91,7 @@ const products = [
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjLyaQFTo5lMAZkzyuR0pBX5wrTuHMXl14DA&usqp=CAU"
     },
     {
-        id: "010",
+        id: "bdxdMi94eghdOrRlzeMY",
         stock: "10",
         name: "circular aplicar 12w",
         category: "circular-aplicar",
