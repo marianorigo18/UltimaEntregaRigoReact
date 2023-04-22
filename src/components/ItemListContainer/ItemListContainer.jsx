@@ -1,7 +1,8 @@
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams} from 'react-router-dom'
+import Card from '../Card/Card'
 
 export const ItemListContainer = () => {
     const [categories, setCategories] = useState([]) 
@@ -29,25 +30,14 @@ export const ItemListContainer = () => {
 
 
     if(loading){
-        return(<h1>cangando...</h1>)
+        return(<h1>cargando...</h1>)
     }
 
 
   return (
     <div>
         <h1>categories</h1>
-        {
-            categories.map(cat => {
-                return(
-                    <div key={cat.id} style={{border:"1px solid #c3c3c3", display: "inline-flex", flexWrap: "wrap"}}>
-                        <img src={cat.img} alt={cat.name} style={{width: "200px"}}/>
-                        <p key={cat.id}>{cat.name}</p>
-                        {categoriaId ? <Link to={`/articulo/${cat.id}`}>ver detalle</Link> : <Link to={`/categoria/${cat.slug}`}>ver categorias</Link>}
-                        
-                    </div>
-                )
-            })
-        }
+        <Card categories={categories} categoriaId={categoriaId}/>
     </div>
   )
 }
