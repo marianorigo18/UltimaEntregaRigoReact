@@ -1,10 +1,24 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import Swal from 'sweetalert2'
 
 const ItemDetail = ({name, img, stock}) => {
 
+  const [alet, setAlert] = useState(false)
+
+  useEffect(()=>{
+  },[alet])
+
   const handleOnAdd = (quantuty) => {
-    console.log(quantuty)
+    Swal.fire({
+      title: 'Se agregaron',
+      text: `${quantuty} unidades de ${name}`,
+      imageUrl: img,
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: name,
+    })
+    setAlert(!false)
   }
   return (
     <div>
