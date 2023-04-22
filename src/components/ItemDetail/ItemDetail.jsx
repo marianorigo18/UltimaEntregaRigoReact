@@ -24,6 +24,7 @@ const ItemDetail = ({name, img, stock}) => {
     <div>
         <img src={img} alt={name}/>
         <h2>{name}</h2>
+        <p>stock: {stock}</p>
         <ItemCount stock={stock} initialValue={1} onAdd={handleOnAdd}/>
     </div>
   )
