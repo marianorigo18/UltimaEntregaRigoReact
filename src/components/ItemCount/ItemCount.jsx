@@ -12,10 +12,10 @@ const ItemCount = ({stock, initialValue, onAdd}) => {
     }
   return (
     <div>
-        <h1>{count}</h1>
-        <button onClick={decrement}>-</button>
-        <button onClick={increment}>+</button>
-        <button onClick={() => onAdd(count)}>agregar al carro</button>
+        <h1 className='font-bold underline'>cantidad: {count}</h1>
+        <button className='border text-lg font-bold p-5' onClick={decrement}>-</button>
+        <button className='border text-lg font-bold p-5' onClick={increment}>+</button>
+        <button className='border text-lg font-bold p-5' onClick={() => onAdd(count)}>agregar al carro</button>
     </div>
   )
 }

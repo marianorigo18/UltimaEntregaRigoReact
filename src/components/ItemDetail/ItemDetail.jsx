@@ -21,10 +21,10 @@ const ItemDetail = ({name, img, stock}) => {
     setAlert(!false)
   }
   return (
-    <div>
+    <div className='grid place-content-center'>
         <img src={img} alt={name}/>
-        <h2>{name}</h2>
-        <p>stock: {stock}</p>
+        <h2 className='font-bold'>{name}</h2>
+        <p className='font-bold'>stock: {stock}</p>
         <ItemCount stock={stock} initialValue={1} onAdd={handleOnAdd}/>
     </div>
   )

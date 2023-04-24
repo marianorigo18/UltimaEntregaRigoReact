@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams} from 'react-router-dom'
 import Card from '../Card/Card'
+import Grilla from '../Grilla/Grilla'
 
 export const ItemListContainer = () => {
     const [categories, setCategories] = useState([]) 
@@ -30,14 +31,16 @@ export const ItemListContainer = () => {
 
 
     if(loading){
-        return(<h1>cargando...</h1>)
+        return(<h1 className='text-3xl m-7 font-bold text-blue-600'>cargando...</h1>)
     }
 
 
   return (
     <div>
-        <h1>categories</h1>
-        <Card categories={categories} categoriaId={categoriaId}/>
+        <h1 className='text-3xl m-7 font-bold'>categories</h1>
+        <Grilla>
+            <Card categories={categories} categoriaId={categoriaId}/>
+        </Grilla>
     </div>
   )
 }
