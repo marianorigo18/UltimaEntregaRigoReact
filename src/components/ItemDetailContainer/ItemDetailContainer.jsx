@@ -23,7 +23,6 @@ const ItemDetailContainer = () => {
         .then(()=>{setLoading(false)})
     }, [productId])
 
-
   return loading ? <h1 className='text-3xl m-7 font-bold text-blue-600'>cargando...</h1> : exist ? <h1 className='text-3xl m-7 font-bold text-blue-600'>El producto no existe el producto</h1> : (
     <div>
         <h1 className='text-3xl m-7 font-bold'>detalle del producto</h1>

@@ -11,14 +11,15 @@ const ItemDetail = ({name, img, stock}) => {
 
   const handleOnAdd = (quantuty) => {
     Swal.fire({
-      title: 'Se agregaron',
-      text: `${quantuty} unidades de ${name}`,
+      title: `Se agregaron ${quantuty}`,
+      text: `${name}`,
       imageUrl: img,
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: name,
     })
     setAlert(!false)
+    console.log(`se agregaron ${quantuty} de ${name}`)
   }
   return (
     <div className='grid place-content-center'>
