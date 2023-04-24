@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Cart from '../Cartt.js/Cart'
+import Brand from '../Brand/Brand'
 
 const styles = {
   navbar: {
@@ -18,7 +19,7 @@ const styles = {
 const Navbar = () => {
   return (
     <div style={styles.navbar}>
-        <NavLink style={{paddingLeft: "20px", textDecoration: "none", fontSize: "30px", fontWeight: "bold"}} to="/">PlafonesShop</NavLink>
+        <Brand/>
         <div>
           <NavLink className="pl-4 underline" to="/categoria/cuadrado-embutir">cuadrado embutir</NavLink>
           <NavLink className="pl-4 underline" to="/categoria/circular-embutir">circular embutir</NavLink>
