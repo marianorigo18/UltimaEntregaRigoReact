@@ -1,17 +1,24 @@
+import { Link } from "react-router-dom"
+import BubbleAlert from "../BubleAlert/BubbleAlert"
 const styles = {
     carro: {
         backgroundColor: "#359a2c",
         color: "#fff",
         border: "none",
         padding: "10px 15px",
-        borderRadius: "15px"
+        borderRadius: "15px",
     }
 }
 
 const Cart = () => {
   return (
     <div>
+      <span className="relative right-16 top-5">
+        <BubbleAlert value="0"/>
+      </span>
+      <Link to="/checkout">
         <div style={styles.carro}>Carro</div>
+      </Link>
     </div>
   )
 }
