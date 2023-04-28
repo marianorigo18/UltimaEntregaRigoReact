@@ -1,12 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom'
 
-const ItemDetail = ({name, img, stock}) => {
+import { CartContext } from '../../context/CartContext'
 
+const ItemDetail = ({name, img, stock}) => {
+  const {nombre} = useContext(CartContext)
+  
   const [alet, setAlert] = useState(false)
   const [goToCart, setGoToCart] = useState(false)
+  console.log("item", nombre)
 
   useEffect(()=>{
   },[alet])
