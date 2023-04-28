@@ -30,7 +30,11 @@ const ItemDetail = ({name, img, stock}) => {
         <h2 className='font-bold'>{name}</h2>
         <p className='font-bold'>stock: {stock}</p>
         {
-          goToCart ? <Link to="/cart">terminar compra</Link> :
+          goToCart ? 
+          <div className='flex flex-col'>
+            <Link className='text-xl text-green-500 bg-amber-700'to="/cart">ver carrito</Link>
+            <Link className='text-xl text-cyan-500 bg-red-400'to="/">volver al inicio</Link>
+          </div> :
           <ItemCount stock={stock} initialValue={1} onAdd={handleOnAdd}/>
         }
     </div>
