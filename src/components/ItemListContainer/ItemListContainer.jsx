@@ -29,7 +29,6 @@ export const ItemListContainer = () => {
         .then(()=>{setLoading(false)})
     },[categoriaId])
 
-    console.log(categories)
     if(loading){
         return(<h1 className='text-3xl m-7 font-bold text-blue-600'>cargando...</h1>)
     }
