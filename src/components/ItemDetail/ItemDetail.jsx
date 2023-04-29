@@ -1,16 +1,15 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom'
 
-import { CartContext } from '../../context/CartContext'
+import {useCartContext} from "../../context/CartContext"
 
-const ItemDetail = ({name, img, stock}) => {
-  const {nombre} = useContext(CartContext)
+const ItemDetail = ({name, img, stock, id}) => {
   
   const [alet, setAlert] = useState(false)
   const [goToCart, setGoToCart] = useState(false)
-  console.log("item", nombre)
+  const {addProduct} = useCartContext()
 
   useEffect(()=>{
   },[alet])
@@ -24,8 +23,8 @@ const ItemDetail = ({name, img, stock}) => {
       imageHeight: 200,
       imageAlt: name,
     })
+    addProduct({name, img, stock, id},quantuty)
     setAlert(!false)
-    console.log(`se agregaron ${quantuty} de ${name}`)
     setGoToCart(true)
   }
   return (
