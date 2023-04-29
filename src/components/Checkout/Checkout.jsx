@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
 const Checkout = () => {
-    const {cart} = useCartContext()
+    const {cart, removeProduct} = useCartContext()
 
         if(cart.length === 0){
           return (
@@ -15,7 +15,14 @@ const Checkout = () => {
         return (
           <>
             {
-              cart.map(product => <div key={product.id}><img src={product.img} alt={product.name}/><p>{product.name}</p><p>{product.quantity}</p></div>)
+              cart.map(product => 
+              <div key={product.id}>
+                <img src={product.img} alt={product.name}/>
+                <p>{product.name}</p>
+                <p>cantidad: {product.quantity}</p>
+                <button className="text-red-600" onClick={()=> removeProduct(product.id)}>eliminar</button>
+              </div>
+                )
             }
           </>
         )

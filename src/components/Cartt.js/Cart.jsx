@@ -12,11 +12,11 @@ const styles = {
 }
 
 const Cart = () => {
-  const {cart} = useCartContext()
+  const {totalProduct} = useCartContext()
   return (
     <div>
       <span className="relative right-16 top-5">
-        <BubbleAlert value={cart.length}/>
+        <BubbleAlert value={totalProduct()}/>
       </span>
       <Link to="/checkout">
         <div style={styles.carro}>Carro</div>
