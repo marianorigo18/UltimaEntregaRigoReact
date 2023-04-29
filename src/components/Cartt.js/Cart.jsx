@@ -23,6 +23,6 @@ const Cart = () => {
       </Link>
     </div>
   )
-}
+} 
 
 export default Cart
